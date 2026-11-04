@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
 import '../styles/global.css';
 
 interface Props {
@@ -7,8 +9,10 @@ interface Props {
 }
 
 const SITE_NAME = 'Shivam Jaiswal';
+const GITHUB_URL = 'https://github.com/shivamjaiswal011';
 const { title, description } = Astro.props;
 const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
+const isWritingPage = Astro.url.pathname.startsWith('/posts');
 ---
 
 <!doctype html>
@@ -16,6 +20,7 @@ const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#141414" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={pageTitle} />
@@ -24,18 +29,28 @@ const pageTitle = title === SITE_NAME ? title : `${title} · ${SITE_NAME}`;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="site-name" href="/">{SITE_NAME}</a>
-      <nav aria-label="Main">
-        <a href="/#projects">Projects</a>
-        <a href="/posts/">Writing</a>
-      </nav>
-    </header>
-    <main>
-      <slot />
-    </main>
-    <footer class="site-footer">
-      <a href="https://github.com/shivamjaiswal011">GitHub</a>
-    </footer>
+    <div class="page">
+      <header class="site-header">
+        <a class="site-mark" href="/">
+          <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <rect x="0.5" y="0.5" width="21" height="21" rx="4" fill="none" stroke="currentColor" />
+            <path d="M6 15.5h10M6 11h6M6 6.5h10" stroke="currentColor" stroke-linecap="round" />
+          </svg>
+          {SITE_NAME}
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/#projects">projects</a>
+          <a href="/posts/" aria-current={isWritingPage ? 'page' : undefined}>writing</a>
+          <a href={GITHUB_URL}>github</a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <span>© {new Date().getFullYear()} {SITE_NAME}</span>
+        <span>built with astro · static html</span>
+      </footer>
+    </div>
   </body>
 </html>

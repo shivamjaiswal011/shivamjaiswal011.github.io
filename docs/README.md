@@ -8,6 +8,7 @@ private code.
 | Doc | Status |
 |---|---|
 | [00-principles.md](00-principles.md) | Draft for review |
+| [01-visual-design.md](01-visual-design.md) | Draft for review |
 | [decisions/](decisions/README.md) | ADR-0001 proposed |
 
 ## Questions for the review

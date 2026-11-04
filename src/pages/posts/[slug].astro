@@ -15,13 +15,18 @@ const project = projects.find((candidate) => candidate.slug === post.data.projec
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article>
-    <h1>{post.data.title}</h1>
-    <p class="muted">
-      <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
-      {project && <> · {project.name}</>}
-    </p>
-    <Content />
+  <article class="article prose-column">
+    <header class="article-header">
+      <p class="eyebrow">
+        <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
+        {project && <> · {project.name}</>}
+      </p>
+      <h1 class="display">{post.data.title}</h1>
+      <p class="lead">{post.data.description}</p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+    <p><a class="text-link" href="/posts/">← all posts</a></p>
   </article>
-  <p><a href="/posts/">← All posts</a></p>
 </BaseLayout>

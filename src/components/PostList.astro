@@ -9,18 +9,21 @@ const { posts } = Astro.props;
 ---
 
 {posts.length === 0 && <p class="muted">First post coming soon.</p>}
-<ul class="list">
-  {
-    posts.map((post) => (
-      <li>
-        <a href={`/posts/${post.id}/`}>{post.data.title}</a>
-        {post.data.draft && <strong> (draft)</strong>}
-        <div class="muted">
-          <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
-          {' · '}
-          {post.data.description}
-        </div>
-      </li>
-    ))
-  }
-</ul>
+{
+  posts.length > 0 && (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a class="post-row" href={`/posts/${post.id}/`}>
+            <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
+            <span class="post-row-title">
+              {post.data.title}
+              {post.data.draft && <span class="mono muted"> · draft</span>}
+            </span>
+            <span class="post-row-description">{post.data.description}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

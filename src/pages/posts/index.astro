@@ -7,6 +7,11 @@ const posts = await getVisiblePosts();
 ---
 
 <BaseLayout title="Writing" description="Design and technical write-ups: decisions, trade-offs and costs.">
-  <h1>Writing</h1>
+  <section class="hero">
+    <h1 class="display">
+      writing
+      <span class="display-quiet">decisions, trade-offs and costs</span>
+    </h1>
+  </section>
   <PostList posts={posts} />
 </BaseLayout>
