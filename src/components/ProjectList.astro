@@ -1,0 +1,34 @@
+---
+import type { Project } from '../data/projects';
+import type { Post } from '../lib/posts';
+
+interface Props {
+  projects: Project[];
+  posts: Post[];
+}
+
+const { projects, posts } = Astro.props;
+const postsFor = (slug: string) => posts.filter((post) => post.data.project === slug);
+---
+
+<ul class="post-list">
+  {
+    projects.map((project) => (
+      <li class="project-row">
+        <h3 class="post-row-title">{project.liveUrl ? <a href={project.liveUrl}>{project.name}</a> : project.name}</h3>
+        <p class="mono muted">{project.role}</p>
+        <p class="project-summary">{project.summary}</p>
+        <ul class="stack" aria-label="Stack">
+          {project.stack.map((tool) => <li>{tool}</li>)}
+        </ul>
+        {postsFor(project.slug).length > 0 && (
+          <ul class="project-posts">
+            {postsFor(project.slug).map((post) => (
+              <li><a class="text-link" href={`/posts/${post.id}/`}>{post.data.title} →</a></li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))
+  }
+</ul>

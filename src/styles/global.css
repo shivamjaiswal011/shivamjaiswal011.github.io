@@ -88,7 +88,7 @@ a:hover { text-decoration-color: var(--color-text); }
 /* Hero */
 .hero { padding-block: clamp(4rem, 12vw, 8rem) 5rem; }
 /* Standalone links get a 44px-tall tap area on touch screens. */
-.text-link, .window-posts a { display: inline-block; padding-block: 0.5rem; }
+.text-link { display: inline-block; padding-block: 0.5rem; }
 .text-link { color: var(--color-text-secondary); text-decoration: none; }
 .text-link:hover { color: var(--color-text); }
 
@@ -99,19 +99,14 @@ a:hover { text-decoration-color: var(--color-text); }
 .intro-title { font-size: clamp(2rem, 4vw + 0.5rem, 2.75rem); line-height: 1.15; }
 .intro .lead { margin-top: 1.25rem; }
 
-/* Project cards drawn as app windows */
-.window-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.5rem; margin-top: 2rem; }
-.window { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-window); overflow: hidden; box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.6); }
-.window-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 0.9rem; background: var(--color-surface-raised); border-bottom: 1px solid var(--color-border); }
-.window-dots { display: flex; gap: 6px; }
-.window-dots span { width: 10px; height: 10px; border-radius: 50%; background: #3a3a3a; }
-.window-tab { font: 0.8125rem var(--font-mono); color: var(--color-text-secondary); }
-.window-body { padding: 1.5rem; }
-.window-body h3 { margin: 0 0 0.5rem; font-size: 1.375rem; font-weight: 450; letter-spacing: -0.01em; }
-.window-body p { margin: 0 0 1rem; color: var(--color-text-secondary); }
+/* Projects: plain rows like the post list */
+.project-row { padding: 1.25rem 0.5rem; border-bottom: 1px solid var(--color-border); }
+.project-row h3 { margin: 0; font-size: 1.125rem; }
+.project-row p { margin: 0.25rem 0 0.75rem; }
+.project-summary { color: var(--color-text-secondary); max-width: var(--prose-width); }
 .stack { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; margin: 0; list-style: none; }
 .stack li { font: 0.8125rem var(--font-mono); padding: 2px 8px; border: 1px solid var(--color-border); border-radius: var(--radius); color: var(--color-text-secondary); }
-.window-posts { margin: 1.25rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--color-border); list-style: none; }
+.project-posts { margin: 0.75rem 0 0; padding: 0; list-style: none; }
 
 /* Post list */
 .post-list { list-style: none; padding: 0; margin: 2rem 0 0; border-top: 1px solid var(--color-border); }

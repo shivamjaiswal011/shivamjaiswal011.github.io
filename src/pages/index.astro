@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostList from '../components/PostList.astro';
-import ProjectWindow from '../components/ProjectWindow.astro';
+import ProjectList from '../components/ProjectList.astro';
 import { projects } from '../data/projects';
 import { getVisiblePosts } from '../lib/posts';
 
 const posts = await getVisiblePosts();
-const postsFor = (slug: string) => posts.filter((post) => post.data.project === slug);
 ---
 
 <BaseLayout
@@ -35,8 +34,6 @@ const postsFor = (slug: string) => posts.filter((post) => post.data.project === 
     <p class="eyebrow">projects</p>
     <h2 class="section-title">What I'm building</h2>
     <p class="muted">Source is private. Code walkthroughs available on request.</p>
-    <div class="window-grid">
-      {projects.map((project) => <ProjectWindow project={project} posts={postsFor(project.slug)} />)}
-    </div>
+    <ProjectList projects={projects} posts={posts} />
   </section>
 </BaseLayout>
