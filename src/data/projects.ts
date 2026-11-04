@@ -8,20 +8,23 @@ export interface Project {
   liveUrl?: string;
 }
 
-// Placeholder copy: rewrite each summary in your own words before publishing.
+// Facts come from the resume ledger or the project docs (docs/02-writing-plan.md, Bio sources).
 export const projects: Project[] = [
   {
     slug: 'tracktions',
     name: 'Tracktions',
-    summary: 'Trading journal that helps traders review their trades and stay consistent.',
-    role: 'Solo founder: product, backend, frontend, operations',
-    stack: ['Go', 'Angular', 'TypeScript', 'PostgreSQL'],
+    summary:
+      'Trading journal for Indian retail traders. Imports fills from broker sync or tradebooks, rebuilds them into trades, and shows each strategy\'s results with the sample size behind every number. Designed, built and run alone, with billing.',
+    role: 'Founder and sole engineer · since Oct 2024',
+    stack: ['Go', 'Angular', 'TypeScript', 'PostgreSQL', 'AWS'],
+    liveUrl: 'https://tracktions.com',
   },
   {
     slug: 'artha-engine',
     name: 'artha-engine',
-    summary: 'Event-driven trading engine: broker feeds, bars, option chains, archival and a live dashboard.',
-    role: 'Design and implementation',
+    summary:
+      'Event-driven options trading engine designed around one rule: no failure may cost more than a limit set before the order is sent. Raw event log as the source of truth, replay parity, broker-side stops, one order manager per account.',
+    role: 'Design and build · paper trading since Oct 2026',
     stack: ['Python', 'React', 'Parquet'],
   },
 ];

@@ -29,12 +29,16 @@ apply, cost, and a dated "what I got wrong" section. 1,200–2,500 words.
 | # | Post | Source docs | Concerns | Status |
 |---|---|---|---|---|
 | 1 | Every failure has a price: designing a trading engine around its worst case | artha-engine `failure-modes.md`, `00-principles.md`, `first-live-session.md` | failure, data-integrity, performance | Published 2026-11-04 |
-| 2 | What the first two live sessions broke (assumptions vs measurements) | artha-engine `first-live-session.md`, `assumptions.md` | failure, performance | Planned |
-| 3 | Keying every order, fill and position by account from day one | artha-engine ADR-0019 | data-integrity, failure | Planned |
-| 4 | A Tracktions decision: security or UX under failure | Tracktions docs (to choose) | security, ux | Planned |
-| 5 | What Tracktions costs to run, line by line | Tracktions | cost | Planned |
+| 2 | Delete the running totals | Tracktions ADR-0010, spike S3 | data-integrity, performance, failure | Published 2026-11-04 |
+| 3 | The job queue I built three times | Tracktions flow 06, failure modes F15/F29, `tracktions-architecture` | failure, cost | Published 2026-11-04 |
+| 4 | A number the user can't misread | Tracktions principles P2–P5, ADR-0005, failure modes, `sample-confidence.md` | ux, data-integrity | Published 2026-11-04 |
+| 5 | One engine, one order manager per account | artha-engine ADR-0019, failure modes | failure, data-integrity, security | Published 2026-11-04 |
+| 6 | What Tracktions costs to run, line by line | Tracktions | cost | Planned |
+| 7 | A security post (sessions, error messages that leaked SQL, credentials per process) | Tracktions `conventions.md`, artha-engine | security | Planned |
 
-One post a month. Each post is reviewed by Shivam before `draft: true` is removed.
+The old post 2 (what the first live sessions broke) is covered by post 1's last section; dropped.
+
+One post a month from here. Each post is reviewed by Shivam before `draft: true` is removed.
 
 ## Rules for private work (P2)
 
@@ -42,6 +46,19 @@ Write the decision, not the system. Name components by role. No strategy logic, 
 signals or thresholds, no P&L, no account identities, no credentials. Broker and vendor names are
 allowed only where Shivam confirms (see Questions for the review).
 
+## Bio sources
+
+The homepage bio, project cards and `/about/` take every fact from the resume variants in
+`~/Documents/job-switch/` (A–D and the PDF, read 2026-11-04). Only numbers marked verified or
+stated in its `metrics-ledger.md` are used. Left out on purpose:
+
+- **9,000 transactions → 2,400 trades in under 10 s**: one recalled run; the ledger says re-run it
+  first.
+- **Go file and migration counts**: they change every increment, so they go stale on a static site.
+- **Start month at BNY**: the PDF says Mar 2022, the Markdown variants Jul 2022. The site says 2022.
+- **Phone number and city**: email only; "India".
+
 ## Open items
 
-- Which Tracktions decision anchors post 4: needs Shivam's pick.
+- `/about/` links `tracktions-architecture`, which still says Redis-to-channels with SQS as the
+  destination; posts 2–3 supersede it. Update that README or add a pointer to the posts.

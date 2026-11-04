@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Every fact and number here is on the resume and its evidence ledger (docs/02-writing-plan.md, Bio sources).
+const EMAIL = 'shivamjaiswal82@gmail.com';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/shivam-jaiswal-556059170';
+---
+
+<BaseLayout
+  title="About · Shivam Jaiswal"
+  description="Full-stack engineer at BNY and solo builder of Tracktions: experience, projects and how I work."
+>
+  <article class="article prose-column">
+    <header class="article-header">
+      <p class="eyebrow">about</p>
+      <h1 class="display">
+        Shivam Jaiswal
+        <span class="display-quiet">full-stack engineer, India, open to fully remote</span>
+      </h1>
+    </header>
+
+    <div class="prose">
+      <p>
+        I've spent four years as a software engineer at BNY on an enterprise data platform: Java and
+        Spring Boot services, ingestion pipelines, a config compiler, test automation and internal AI
+        tooling, and I now lead a four-person frontend team. Outside work I designed, built and run a
+        whole product alone, and I'm building a trading engine where every failure has a written
+        price.
+      </p>
+      <p>
+        I work from written decisions. Before the code there's a doc: the options and why the loser
+        lost, what each part does when it breaks, which numbers are measured and which are only
+        assumed. I care about removing moving parts as much as adding them.
+      </p>
+
+      <h2>BNY · software engineer · 2022 to now</h2>
+      <ul>
+        <li>
+          <strong>Made a changing codebase safe to change.</strong> Led four frontend engineers on an
+          Angular codebase with <code>any</code> everywhere, no lint rules and no review rules. Replaced
+          <code>any</code> with strict typing, turned the standards into lint rules so they held without
+          policing, and made merge-request review and CI gates mandatory. Over six months defects
+          fell from one or two a sprint to one or two a quarter, while the team kept shipping.
+        </li>
+        <li>
+          <strong>Turned hand-written config into a UI.</strong> Built the process that flattens the
+          platform's tree-structured data into generated JSON config, which drives table creation and
+          the whole ingestion pipeline. Then designed a visual builder for multi-table joins and wrote
+          the compiler that emits the same config.
+        </li>
+        <li>
+          <strong>Automated acceptance testing with LLM agents.</strong> Built the Java test framework,
+          then replaced its manual verification step with a two-agent pipeline that runs end-to-end
+          acceptance tests across 30+ datasets and 50+ microservices, driven by a scenario-based
+          validation language with seven validation types.
+        </li>
+        <li>
+          <strong>Internal AI developer platform, in an air-gapped network.</strong> Shipped a
+          marketplace for AI skills and MCP servers with one-click install and an open contribution
+          model, then folded it into one developer MCP server so a single install exposes the whole
+          catalogue. Nine skills and eight workflows, used by 18 developers across three teams.
+        </li>
+        <li>
+          <strong>2022 to 2024:</strong> sole developer of a Spring Boot project from schema to UI, and
+          owner of production debugging for the platform.
+        </li>
+      </ul>
+
+      <h2>Tracktions · founder and sole engineer · Oct 2024 to now</h2>
+      <p>
+        A trading journal for Indian retail traders, live at
+        <a href="https://tracktions.com">tracktions.com</a>. I chose the market and the pricing, and I
+        run every layer: a Go API on PostgreSQL, an Angular client, broker sync and file import, AWS
+        hosting and subscription billing. Its design pack is written before the code: principles,
+        flows, algorithm specs, a failure table, an assumptions register and 13 decision records.
+      </p>
+      <ul>
+        <li><a href="/posts/analytics-from-the-record/">Delete the running totals</a>: metrics computed on read from trade facts, benchmarked at 100,000 trades before any code.</li>
+        <li><a href="/posts/three-job-queues/">The job queue I built three times</a>: Redis, Go channels, then a Postgres table.</li>
+        <li><a href="/posts/a-number-the-user-cant-misread/">A number the user can't misread</a>: sample sizes, provenance, and staying a calculator rather than an adviser.</li>
+      </ul>
+
+      <h2>artha-engine · design and build · 2026</h2>
+      <p>
+        An event-driven options trading engine in Python with a React dashboard. Its design starts
+        from one rule: no failure may cost more than a limit set before the order is sent. Every
+        failure has a row with its detection, response, worst case and test. It ran its first paper
+        sessions in October 2026, and those sessions proved several of my own estimates wrong.
+      </p>
+      <ul>
+        <li><a href="/posts/every-failure-has-a-price/">Every failure has a price</a></li>
+        <li><a href="/posts/one-order-manager-per-account/">One engine, one order manager per account</a></li>
+      </ul>
+
+      <h2>Public work</h2>
+      <ul>
+        <li>
+          <a href="https://github.com/shivamjaiswal011/codebase-context-pilot">codebase-context-pilot</a>:
+          a controlled 10-task A/B test of a code-graph context system for coding agents. I fixed the
+          pass/fail rule before collecting data, found two measurement defects that invalidated the
+          first pass, and published the negative result instead of shipping the tool.
+        </li>
+        <li>
+          <a href="https://github.com/shivamjaiswal011/tracktions-architecture">tracktions-architecture</a>:
+          the first public notes on Tracktions' architecture. The posts above update them.
+        </li>
+        <li>
+          <a href="https://github.com/shivamjaiswal011/health-app">health-app</a>: an offline-first
+          training and nutrition tracker in TypeScript. No server, no account, and the data stays on
+          the device.
+        </li>
+        <li>
+          <a href="https://github.com/shivamjaiswal011/Competitive-Coding-From-scratch">Competitive-Coding-From-scratch</a>:
+          a topic-by-topic competitive programming curriculum in C++, with 118 stars and 30 forks.
+        </li>
+      </ul>
+
+      <h2>Tools</h2>
+      <p>
+        <strong>Languages:</strong> Java, TypeScript, Go, Python, SQL.
+        <strong>Frontend:</strong> Angular, React, RxJS, Tailwind, ag-Grid, Chart.js.
+        <strong>Backend and data:</strong> Spring Boot, Gin, PostgreSQL, REST, server-sent events.
+        <strong>Infrastructure:</strong> AWS (EC2, RDS, S3, SES), Docker, GitLab and GitHub CI.
+        <strong>AI tooling:</strong> MCP servers, multi-agent LLM pipelines, Claude Code.
+      </p>
+      <p>B.Tech in Computer Engineering, Delhi Technological University, 2018 to 2022.</p>
+
+      <h2>Contact</h2>
+      <p>
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a> ·
+        <a href="https://github.com/shivamjaiswal011">GitHub</a> ·
+        <a href={LINKEDIN_URL}>LinkedIn</a>
+      </p>
+      <p>The source for Tracktions and artha-engine is private. I'm happy to walk through it on a call.</p>
+    </div>
+  </article>
+</BaseLayout>

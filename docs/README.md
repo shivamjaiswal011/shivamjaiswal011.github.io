@@ -29,8 +29,10 @@ private code.
 - **Concern**: one of the quality areas a post covers (failure modes, security, performance, UX,
   data integrity, cost); listed in [02-writing-plan.md](02-writing-plan.md#concerns).
 - **Project**: an entry in `src/data/projects.ts`. A post links to it through its `project` field.
+- **About page**: `/about/`, the long bio (experience, projects, public work, contact). Its sources are
+  in [02-writing-plan.md](02-writing-plan.md#bio-sources).
 
 ## Open items
 
-- [02-writing-plan.md](02-writing-plan.md#open-items): which Tracktions decision anchors post 4.
+- [02-writing-plan.md](02-writing-plan.md#open-items): the public `tracktions-architecture` notes are older than posts 2–3.
 - [ADR-0001](decisions/0001-astro-static-site-on-github-pages.md#open-items): when to buy a domain.
