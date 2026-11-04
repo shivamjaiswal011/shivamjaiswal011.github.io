@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { projects } from '../data/projects';
+import { getVisiblePosts } from '../lib/posts';
+
+const LATEST_POST_COUNT = 3;
+const posts = await getVisiblePosts();
+const postsFor = (slug: string) => posts.filter((post) => post.data.project === slug);
+---
+
+<BaseLayout title="Shivam Jaiswal" description="Full-stack engineer. Projects and design write-ups.">
+  <h1>Shivam Jaiswal</h1>
+  <p>
+    Full-stack engineer. I write down the decisions behind what I build: the options, the
+    trade-offs and what each choice cost.
+  </p>
+
+  <h2 id="projects">Projects</h2>
+  {
+    projects.map((project) => (
+      <article class="card">
+        <h3>{project.liveUrl ? <a href={project.liveUrl}>{project.name}</a> : project.name}</h3>
+        <p>{project.summary}</p>
+        <p class="muted">{project.role}</p>
+        <ul class="tags" aria-label="Stack">
+          {project.stack.map((tool) => <li>{tool}</li>)}
+        </ul>
+        {postsFor(project.slug).length > 0 && (
+          <ul>
+            {postsFor(project.slug).map((post) => (
+              <li><a href={`/posts/${post.id}/`}>{post.data.title}</a></li>
+            ))}
+          </ul>
+        )}
+      </article>
+    ))
+  }
+  <p class="muted">Source is private; code walkthroughs available on request.</p>
+
+  <h2>Latest writing</h2>
+  <PostList posts={posts.slice(0, LATEST_POST_COUNT)} />
+  <p><a href="/posts/">All posts →</a></p>
+</BaseLayout>

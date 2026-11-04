@@ -1,0 +1,27 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatPostDate, getVisiblePosts, type Post } from '../../lib/posts';
+import { projects } from '../../data/projects';
+
+export async function getStaticPaths() {
+  const posts = await getVisiblePosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props as { post: Post };
+const { Content } = await render(post);
+const project = projects.find((candidate) => candidate.slug === post.data.project);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p class="muted">
+      <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
+      {project && <> · {project.name}</>}
+    </p>
+    <Content />
+  </article>
+  <p><a href="/posts/">← All posts</a></p>
+</BaseLayout>
