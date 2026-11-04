@@ -11,13 +11,16 @@ language (not the brand): https://paper.design, inspected 2026-11-04.
 | Text | `lab(94.2 -1.4 5.3)`, warm off-white | `#eeece6` |
 | Body font | Matter (paid), 18px / 28px, tracking +0.01em | Geist Variable, same size and line height |
 | Headline | 56px, weight 360, tracking -0.02em, line height 1.0; second line in grey | same, `clamp()` down to 36px on phones |
-| Primary button | off-white fill, dark text, weight 480, radius 4px, padding 6px 14px | same |
 | Nav | lowercase words, no underline | same |
 | Product shots | inside a desktop-app window frame | project cards drawn as app windows |
 | Background art | thin diagonal drafting lines | faint square grid, faded at the edges |
 
 ## Decisions
 
+- **Homepage opens with a bio, not a hero.** Name, a one-line position in the quiet grey, and a
+  short bio, with no buttons. The research found strong engineer sites open with a bio and go
+  straight to writing; the nav already links to writing and projects. Alternative: a slogan hero
+  with calls to action, as on product sites. Lost: it reads as marketing.
 - **Dark only.** Matches the reference and keeps one palette to maintain. Alternative: light and
   dark themes. Lost: twice the colour checking for a site with one author. Revisit if readers ask.
 - **Geist, self-hosted from npm (`@fontsource-variable/geist`, `geist-mono`).** Free, variable

@@ -4,7 +4,6 @@ description: How I designed a trading engine around one rule, that no failure ma
 published: 2026-11-04
 project: artha-engine
 concerns: [failure, data-integrity, performance]
-draft: true
 ---
 
 Most system designs describe what happens when everything works. The feed delivers ticks, the

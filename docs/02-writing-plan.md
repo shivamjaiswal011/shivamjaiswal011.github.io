@@ -28,7 +28,7 @@ apply, cost, and a dated "what I got wrong" section. 1,200–2,500 words.
 
 | # | Post | Source docs | Concerns | Status |
 |---|---|---|---|---|
-| 1 | Every failure has a price: designing a trading engine around its worst case | artha-engine `failure-modes.md`, `00-principles.md`, `first-live-session.md` | failure, data-integrity, performance | Draft |
+| 1 | Every failure has a price: designing a trading engine around its worst case | artha-engine `failure-modes.md`, `00-principles.md`, `first-live-session.md` | failure, data-integrity, performance | Published 2026-11-04 |
 | 2 | What the first two live sessions broke (assumptions vs measurements) | artha-engine `first-live-session.md`, `assumptions.md` | failure, performance | Planned |
 | 3 | Keying every order, fill and position by account from day one | artha-engine ADR-0019 | data-integrity, failure | Planned |
 | 4 | A Tracktions decision: security or UX under failure | Tracktions docs (to choose) | security, ux | Planned |
