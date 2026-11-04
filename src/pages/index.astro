@@ -1,12 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ConcernGrid from '../components/ConcernGrid.astro';
 import PostList from '../components/PostList.astro';
 import ProjectWindow from '../components/ProjectWindow.astro';
 import { projects } from '../data/projects';
 import { getVisiblePosts } from '../lib/posts';
 
-const LATEST_POST_COUNT = 3;
 const posts = await getVisiblePosts();
 const postsFor = (slug: string) => posts.filter((post) => post.data.project === slug);
 ---
@@ -21,27 +19,16 @@ const postsFor = (slug: string) => posts.filter((post) => post.data.project === 
       <span class="display-quiet">full-stack engineer who designs for the breaks</span>
     </h1>
     <p class="lead">
-      Software engineer at BNY since 2022, where I lead a four-person frontend team on an
-      enterprise data platform and built its config compiler, LLM test automation and internal AI
-      developer platform. Outside work I designed, built and run Tracktions, a trading-journal SaaS,
-      alone, and I'm building artha-engine, an event-driven options trading engine. I write every
-      design down before the code: what can fail, how it's detected, the worst case, and the test
-      that proves it. This site publishes those write-ups. <a href="/about/">More about me →</a>
+      I write up how I design systems for failure, security, performance and cost, from
+      Tracktions, a trading-journal SaaS I run alone, and artha-engine, a trading engine. Software
+      engineer at BNY. <a href="/about/">About me →</a>
     </p>
   </section>
 
   <section class="section">
-    <p class="eyebrow">how I design</p>
-    <h2 class="section-title">The questions I ask before the code</h2>
-    <p class="muted">The parts most teams find in production. Every post answers some of them.</p>
-    <ConcernGrid />
-  </section>
-
-  <section class="section">
     <p class="eyebrow">writing</p>
-    <h2 class="section-title">Latest</h2>
-    <PostList posts={posts.slice(0, LATEST_POST_COUNT)} />
-    <p><a class="text-link" href="/posts/">all posts →</a> <a class="text-link" href="/rss.xml">rss</a></p>
+    <PostList posts={posts} />
+    <p><a class="text-link" href="/rss.xml">rss</a></p>
   </section>
 
   <section class="section" id="projects">

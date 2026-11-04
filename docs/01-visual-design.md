@@ -17,10 +17,11 @@ language (not the brand): https://paper.design, inspected 2026-11-04.
 
 ## Decisions
 
-- **Homepage opens with a bio, not a hero.** Name, a one-line position in the quiet grey, and a
-  short bio, with no buttons. The research found strong engineer sites open with a bio and go
-  straight to writing; the nav already links to writing and projects. Alternative: a slogan hero
-  with calls to action, as on product sites. Lost: it reads as marketing.
+- **Homepage is the writing.** Name, a one-line position in the quiet grey, two sentences of bio
+  linking to `/about/`, then every post, then projects. No hero and no "how I design" cards: the
+  posts show how I design, so a section claiming it is selling. The long bio lives on `/about/`.
+  Alternative: a slogan hero, or bio and principle cards above the posts. Lost: it reads as
+  marketing, and pushes the writing below the fold.
 - **Reading pages centre their column.** Posts and the about page sit in one 42rem column in the
   middle of the page, as on Medium; the header, homepage and lists stay full width. Alternative:
   left-aligned under the logo. Lost: on wide screens it left half the page empty on the right.
