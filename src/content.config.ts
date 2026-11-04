@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { concernKeys } from './data/concerns';
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
@@ -9,6 +10,7 @@ const posts = defineCollection({
     description: z.string(),
     published: z.coerce.date(),
     project: z.string().optional(),
+    concerns: z.array(z.enum(concernKeys)).default([]),
     draft: z.boolean().default(false),
   }),
 });

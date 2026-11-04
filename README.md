@@ -34,6 +34,8 @@ Versions are pinned exactly in `package.json` and `package-lock.json`. Add a dep
 | Production build into `dist/` (drafts left out) | `npm run build` |
 | Serve the built site locally | `npm run preview` |
 
+The RSS feed is built to `/rss.xml`.
+
 ## Write a post
 
 1. Add `src/content/posts/<slug>.md`. The file name becomes the URL: `/posts/<slug>/`.
@@ -44,6 +46,7 @@ Versions are pinned exactly in `package.json` and `package-lock.json`. Add a dep
    description: One sentence shown in the post list and in link previews.
    published: 2026-11-04
    project: artha-engine     # optional; must match a slug in src/data/projects.ts
+   concerns: [failure, data-integrity]  # failure, security, performance, ux, data-integrity, cost
    draft: true               # optional; drafts show in dev, never in the build
    ---
    ```

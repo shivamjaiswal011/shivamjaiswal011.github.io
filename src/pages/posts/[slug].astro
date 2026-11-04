@@ -1,7 +1,8 @@
 ---
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { formatPostDate, getVisiblePosts, type Post } from '../../lib/posts';
+import ConcernTags from '../../components/ConcernTags.astro';
+import { formatPostDate, getVisiblePosts, readMinutes, type Post } from '../../lib/posts';
 import { projects } from '../../data/projects';
 
 export async function getStaticPaths() {
@@ -20,9 +21,11 @@ const project = projects.find((candidate) => candidate.slug === post.data.projec
       <p class="eyebrow">
         <time datetime={post.data.published.toISOString()}>{formatPostDate(post.data.published)}</time>
         {project && <> · {project.name}</>}
+        {' · '}{readMinutes(post)} min read
       </p>
       <h1 class="display">{post.data.title}</h1>
       <p class="lead">{post.data.description}</p>
+      <ConcernTags keys={post.data.concerns} />
     </header>
     <div class="prose">
       <Content />

@@ -1,0 +1,17 @@
+---
+import { concerns, type ConcernKey } from '../data/concerns';
+
+interface Props {
+  keys: ConcernKey[];
+}
+
+const { keys } = Astro.props;
+---
+
+{
+  keys.length > 0 && (
+    <ul class="concern-tags" aria-label="Concerns covered">
+      {keys.map((key) => <li>{concerns[key].label}</li>)}
+    </ul>
+  )
+}

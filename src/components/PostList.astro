@@ -1,5 +1,6 @@
 ---
-import { formatPostDate, type Post } from '../lib/posts';
+import ConcernTags from './ConcernTags.astro';
+import { formatPostDate, readMinutes, type Post } from '../lib/posts';
 
 interface Props {
   posts: Post[];
@@ -21,6 +22,10 @@ const { posts } = Astro.props;
               {post.data.draft && <span class="mono muted"> · draft</span>}
             </span>
             <span class="post-row-description">{post.data.description}</span>
+            <span class="post-row-meta">
+              <span class="mono muted">{readMinutes(post)} min read</span>
+              <ConcernTags keys={post.data.concerns} />
+            </span>
           </a>
         </li>
       ))}

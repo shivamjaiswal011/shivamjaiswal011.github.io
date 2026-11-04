@@ -23,3 +23,17 @@ HTML.
 **Alternative.** A hosted blog (Hashnode, Medium). Lost: the content would live on someone else's
 domain and layout, and moving it later breaks links.
 **Cost.** No web editor; writing a post means a commit.
+
+## P4. Every design post shows how it breaks
+**Rule.** A design post covers the concerns most write-ups skip: failure modes, security,
+performance, UX, data integrity and cost. Each one it covers states what goes wrong, how it is
+detected, the automatic response, the worst case and the test that proves it. Each post is tagged
+with the concerns it covers.
+**Why.** This is the positioning: an engineer who designs for the breaks, not the happy path. The
+research (`reports/Remote engineer portfolio patterns.md`) found trade-off defences and failure
+narratives are the posts that show judgement, and that hiring processes like Oxide's ask for
+exactly these.
+**Alternative.** General engineering posts and tutorials. Lost: they look like every other blog
+and show no judgement.
+**Cost.** Each post takes longer, and a concern with nothing true to say is left out rather than
+padded.

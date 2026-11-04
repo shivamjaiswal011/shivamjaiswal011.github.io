@@ -1,8 +1,9 @@
 ---
 title: Example decision write-up
-description: Template showing the shape of a post built from an ADR. Delete once a real post exists.
+description: Template for a design post (docs/02-writing-plan.md). Never published.
 published: 2026-11-04
 project: artha-engine
+concerns: [failure]
 draft: true
 ---
 
@@ -10,9 +11,10 @@ draft: true
 
 What was at stake, in plain terms, for someone who has never seen the system.
 
-## Constraints
+## Constraints and non-goals
 
-The numbers that shaped the choice: volume, latency, cost, who runs it.
+The numbers that shaped the choice: volume, latency, cost, who runs it. Then the reasonable goals
+deliberately left out, and why.
 
 ## Options
 
@@ -25,10 +27,21 @@ The numbers that shaped the choice: volume, latency, cost, who runs it.
 
 The argument that beat the other options.
 
+## How it breaks
+
+| Failure | Detection | Automatic response | Worst case | Test |
+|---|---|---|---|---|
+| | | | | |
+
+## Security, performance, UX
+
+Only the ones this decision touches, each with what was measured or what the user sees. Leave out
+any with nothing true to say.
+
 ## What it cost
 
-What got harder, what we gave up.
+What got harder, what we gave up, what it costs to run.
 
-## What I'd change
+## What I got wrong (dated)
 
-What went wrong, or what the live system showed that the design did not expect.
+What the live system showed that the design did not expect, and what changed because of it.
