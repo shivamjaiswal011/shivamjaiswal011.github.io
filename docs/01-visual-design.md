@@ -21,6 +21,9 @@ language (not the brand): https://paper.design, inspected 2026-11-04.
   short bio, with no buttons. The research found strong engineer sites open with a bio and go
   straight to writing; the nav already links to writing and projects. Alternative: a slogan hero
   with calls to action, as on product sites. Lost: it reads as marketing.
+- **Reading pages centre their column.** Posts and the about page sit in one 42rem column in the
+  middle of the page, as on Medium; the header, homepage and lists stay full width. Alternative:
+  left-aligned under the logo. Lost: on wide screens it left half the page empty on the right.
 - **Dark only.** Matches the reference and keeps one palette to maintain. Alternative: light and
   dark themes. Lost: twice the colour checking for a site with one author. Revisit if readers ask.
 - **Geist, self-hosted from npm (`@fontsource-variable/geist`, `geist-mono`).** Free, variable
